@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>30</title>
+  </head>
+  <body>
+    <div id="loader" class="center"></div>
+    <div id="spotlight"></div>
+    <div class="container">
+      <span class="statement">
+        <h3>why i create</h3>
+        <p>
+          i can write, but i can hardly paint. i can also take pictures. i
+          wonder where all art comes from. i wonder if all the beauty, meaning,
+          and filth of it lives within me, or perhaps my art is my reaction the
+          world, choosing to manifest in words rather than paint, or sometimes
+          photographs. it may very well be the latter, because when i look at my
+          work, i am rarely able to answer the <i>why</i> of it. it is more
+          likely that i just felt a hollow in the shape of a mute emotion, and i
+          saw to fill it with something. whether the result is to be considered
+          art or not is purely subjective. i create, or at least try to create,
+          something fine, something bigger and better than me, and
+          <i>something that justifies my trials and indiscretions</i>.
+        </p>
+
+        <p>
+          "perhaps the greatness of art lies in the perpetual tension between
+          beauty and pain, the love of men and the madness of creation,
+          unbearable solitude and the exhausting crowd, rejection and consent…
+          On the ridge where the great artist moves forward, every step is an
+          adventure, an extreme risk. In that risk, however, and only there,
+          lies the freedom of art." -- albert camus
+        </p>
+      </span>
+      <span class="frames">
+        <img src="./assets/pictures/1.jpeg" />
+        <img src="./assets/pictures/2.jpeg" />
+        <img src="./assets/pictures/3.jpeg" />
+        <img src="./assets/pictures/4.jpeg" />
+        <img src="./assets/pictures/5.jpeg" />
+        <img src="./assets/pictures/6.jpeg" />
+        <img src="./assets/pictures/7.jpeg" />
+        <img src="./assets/pictures/8.jpeg" />
+        <img src="./assets/pictures/9.jpeg" />
+        <img src="./assets/pictures/10.jpeg" />
+        <img src="./assets/pictures/11.jpeg" />
+        <img src="./assets/pictures/12.jpeg" />
+        <img src="./assets/pictures/13.jpeg" />
+        <img src="./assets/pictures/14.jpeg" />
+        <img src="./assets/pictures/15.jpeg" />
+        <img src="./assets/pictures/16.jpeg" />
+        <img src="./assets/pictures/17.jpeg" />
+        <img src="./assets/pictures/18.jpeg" />
+        <img src="./assets/pictures/19.jpeg" />
+        <img src="./assets/pictures/20.jpeg" />
+        <img src="./assets/pictures/21.jpeg" />
+        <img src="./assets/pictures/22.jpeg" />
+        <img src="./assets/pictures/23.jpeg" />
+        <img src="./assets/pictures/24.jpeg" />
+        <img src="./assets/pictures/25.jpeg" />
+      </span>
+    </div>
+    <script>
+      const spotlightEl = document.querySelector("#spotlight");
+
+      function handleMouseMove(event) {
+        const { clientX, clientY } = event;
+
+        spotlightEl.style.background = `radial-gradient(circle at ${clientX}px ${clientY}px, #00000000 10px, #000000ee 350px)`;
+      }
+
+      var myDiv = document.querySelector("#spotlight");
+
+      document.addEventListener("keypress", function (event) {
+        if (event.code === "Space") {
+          if (myDiv.style.display === "none") {
+            myDiv.style.display = "block";
+          } else {
+            myDiv.style.display = "none";
+          }
+        }
+      });
+
+      document.addEventListener("mousemove", handleMouseMove);
+      
+      document.onreadystatechange = function () {
+        if (document.readyState !== "complete") {
+          document.querySelector("body").style.visibility = "hidden";
+          document.querySelector("#loader").style.visibility = "visible";
+        } else {
+          document.querySelector("#loader").style.display = "none";
+          document.querySelector("body").style.visibility = "visible";
+        }
+      };
+    </script>
+  </body>
+</html>

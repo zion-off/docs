@@ -1,0 +1,92 @@
+@font-face {
+  font-family: heading;
+  src: url("fonts/TT\ Chocolates\ \ DemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: paragraph;
+  src: url("fonts/TT\ Chocolates\ \ Regular.otf") format("opentype");
+}
+
+h1 {
+  font-family: heading;
+  font-size: 5em;
+  margin-top: 20vh;
+}
+
+.title-mugler {
+  color: #9ED5EF;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
+}
+
+p {
+  font-family: paragraph;
+  font-size: 1.1em;
+  text-align: left;
+  text-justify: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  margin-left: 30vw;
+  margin-right: 30vw;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+}
+
+.mugler-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.me-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.mugler {
+  width: 40vw;
+  margin: 0 auto;
+  transition: transform 0.3s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+  .mugler {
+    width: 80vw;
+  }
+}
+
+.me {
+  width: 40vw;
+  margin: 0 auto;
+  transition: transform 0.3s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+  .me {
+    width: 80vw;
+  }
+}
+
+.end {
+  margin-bottom: 10vh;
+}

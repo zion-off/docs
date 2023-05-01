@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>presentation</title>
+</head>
+
+<body onload="positionElements()">
+    <!-- HTML code -->
+    <div class="draggable-element">
+        fetishization
+    </div>
+    <div class="draggable-element">
+        exaggerated details
+    </div>
+    <div class="draggable-element">
+        absence of western man
+    </div>
+    <div class="draggable-element">
+        absence of representation
+    </div>
+    <div class="draggable-element">
+        absence of labour
+    </div>
+    <div class="draggable-element">
+        savagery
+    </div>
+    <div class="draggable-element">
+        exoticism
+    </div>
+    <div class="draggable-element">
+        reductivism
+    </div>
+    <div class="draggable-element">
+        absence of history
+    </div>
+    <div class="draggable-element">
+        inferior orient
+    </div>
+
+
+    <!-- JavaScript code -->
+    <script>
+
+        // collect all the divs
+        var divs = document.getElementsByTagName('div');
+        // get window width and height
+        var winWidth = window.innerWidth;
+        var winHeight = window.innerHeight;
+
+        // i stands for "index". you could also call this banana or haircut. it's a variable
+        for (var i = 0; i < divs.length; i++) {
+
+            // shortcut! the current div in the list
+            var thisDiv = divs[i];
+
+            // get random numbers for each element
+            randomTop = getRandomNumber(260, winHeight-20);
+            randomLeft = getRandomNumber(-10, winWidth-20);
+
+            // update top and left position
+            thisDiv.style.top = randomTop + "px";
+            thisDiv.style.left = randomLeft + "px";
+
+        }
+
+        // function that returns a random number between a min and max
+        function getRandomNumber(min, max) {
+
+            return Math.random() * (max - min) + min;
+
+        }
+        // Get all the draggable elements
+        var draggableElements = document.querySelectorAll(".draggable-element");
+
+        // Add the event listeners for mousedown, mousemove, and mouseup
+        // to each draggable element
+        draggableElements.forEach(function (draggableElement) {
+            draggableElement.addEventListener("mousedown", onMouseDown);
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", onMouseUp);
+        });
+
+        // Variables for the current position and the element being dragged
+        var currentX;
+        var currentY;
+        var activeElement;
+
+        function onMouseDown(e) {
+            // Get the current position and the element being dragged
+            currentX = e.clientX;
+            currentY = e.clientY;
+            activeElement = this;
+        }
+
+        function onMouseMove(e) {
+            // If there is no active element, exit the function
+            if (!activeElement) return;
+
+            // Calculate the new position
+            var newX = currentX - e.clientX;
+            var newY = currentY - e.clientY;
+            currentX = e.clientX;
+            currentY = e.clientY;
+
+            // Set the new position
+            activeElement.style.top = (activeElement.offsetTop - newY) + "px";
+            activeElement.style.left = (activeElement.offsetLeft - newX) + "px";
+        }
+
+        function onMouseUp(e) {
+            // Set the active element to null
+            activeElement = null;
+        }
+    </script>
+
+</body>
+
+</html>
