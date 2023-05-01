@@ -1,0 +1,191 @@
+html {
+  font-family: "Source Code Pro", monospace;
+}
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: black;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #444444;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+.index {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 250px;
+    grid-gap: 10px;
+    justify-content: center;
+    align-content: center;
+  }
+  
+
+.carousel {
+  visibility: hidden;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #ffffff;
+}
+
+.hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.titles-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh;
+}
+
+main section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+main section .carousel-container {
+  width: 70%;
+  aspect-ratio: 3/2;
+  max-height: calc(100vw * (2 / 3));
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.375rem;
+}
+main section .carousel-container .item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+  animation: fade 0s linear;
+}
+main section .carousel-container .item .numbertext {
+  padding: 0.5rem 0.75rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 0.9375rem;
+  font-size: 0.575rem;
+  color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+main section .carousel-container .item .image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+main section .carousel-container .item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main section .carousel-container .item .text {
+  width: 100%;
+  padding: 0.625rem 0.9375rem;
+  position: absolute;
+  bottom: 0;
+  font-size: 0.9rem;
+  color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+main section .carousel-container .item .text .title {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+main section .carousel-container .prev,
+main section .carousel-container .next {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.3125rem;
+  position: absolute;
+  top: calc(50% - 1rem);
+  user-select: none;
+  font-size: 1rem;
+  color: #f2f2f2;
+  border-radius: 50%;
+  transition: 0.6s ease;
+}
+main section .carousel-container .prev:focus,
+main section .carousel-container .prev:hover,
+main section .carousel-container .next:focus,
+main section .carousel-container .next:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+main section .carousel-container .prev {
+  left: 0.8rem;
+}
+main section .carousel-container .next {
+  right: 0.8rem;
+}
+main section .carousel-container .dots {
+  padding: 0.9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main section .carousel-container .dots .dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  margin: 0 0.125rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #bbb;
+  transition: background-color 0.6s ease;
+}
+main section .carousel-container .dots .dot:focus,
+main section .carousel-container .dots .dot:hover {
+  background-color: #717171;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
+}
